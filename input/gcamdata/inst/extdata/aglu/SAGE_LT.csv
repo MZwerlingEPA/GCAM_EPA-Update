@@ -1,0 +1,25 @@
+# File: SAGE_LT.csv
+# Title: Maps SAGE 14 land cover types and HYDE 3 types to GCAM land cover types
+# Units: NA
+# Source: SAGE: Ramankutty, N., and J. Foley. 1999. Estimating historical changes in global land cover: Croplands from 1700 to 1992, Global Biogeochemical Cycles 13, 997-1027; HYDE: Klein Goldewijk, K., A. Beusen, G. van Drecht, M. de Vos The HYDE 3.1 spatially explicit database of human-induced global land-use change over the past 12,000 years, Global Ecology and Biogeography 20: 73-86.
+# Column types: cc 
+# ----------
+LT_SAGE,Land_Type
+TropicalEvergreenForest/Woodland,Softwood_Forest
+TropicalDeciduousForest/Woodland,Hardwood_Forest
+TemperateBroadleafEvergreenForest/Woodland,Softwood_Forest
+TemperateNeedleleafEvergreenForest/Woodland,Hardwood_Forest
+TemperateDeciduousForest/Woodland,Hardwood_Forest
+BorealEvergreenForest/Woodland,Softwood_Forest
+BorealDeciduousForest/Woodland,Hardwood_Forest
+Evergreen/DeciduousMixedForest/Woodland,Softwood_Forest
+Savanna,Grassland
+Grassland/Steppe,Grassland
+DenseShrubland,Shrubland
+OpenShrubland,Shrubland
+Tundra,Tundra
+Desert,RockIceDesert
+PolarDesert/Rock/Ice,RockIceDesert
+Pasture,Pasture
+Cropland,Cropland
+Urbanland,Urbanland

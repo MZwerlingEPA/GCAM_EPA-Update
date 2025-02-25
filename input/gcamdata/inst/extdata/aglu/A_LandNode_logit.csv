@@ -1,0 +1,16 @@
+# File: A_LandNode_logit.csv
+# Title: A_LandNode_logit
+# Units: NA
+# Description: Logit exponents of land nodes
+# Column types: cnc 
+# ----------
+LandNode,logit.exponent,logit.type
+Tundra,0,
+RockIceDesert,0,
+UrbanLand,0,
+AgroForestLand,1.75,
+AllPastureLand,2,
+AgroForest_NonPasture,1.25,
+AllForestLand,1.25,
+GrassShrubLand,0.05,
+CropLand,1.75,

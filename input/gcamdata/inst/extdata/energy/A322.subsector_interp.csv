@@ -1,0 +1,16 @@
+# File: A322.subsector_interp.csv
+# Title: ammonia / traded ammonia / regional ammonia / N fertilizer default subsector shareweight interpolation
+# Units: NA
+# Column types: cciccccc 
+# ----------
+supplysector,subsector,traded,apply.to,from.year,to.year,to.value,interpolation.function
+ammonia,coal,0,share-weight,final-calibration-year,end-year,,fixed
+ammonia,gas,0,share-weight,final-calibration-year,end-year,,linear
+ammonia,refined liquids,0,share-weight,final-calibration-year,2035,,linear
+ammonia,refined liquids,0,share-weight,2035,end-year,,fixed
+ammonia,hydrogen,0,share-weight,start-year,2020,,fixed
+ammonia,hydrogen,0,share-weight,2020,2050,,linear
+ammonia,hydrogen,0,share-weight,2050,end-year,,fixed
+traded ammonia,traded ammonia,1,share-weight,final-calibration-year,end-year,,fixed
+regional ammonia,domestic ammonia,0,share-weight,final-calibration-year,end-year,,fixed
+regional ammonia,imported ammonia,0,share-weight,final-calibration-year,end-year,,fixed
