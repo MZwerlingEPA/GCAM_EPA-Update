@@ -172,16 +172,16 @@ module_emissions_L152.MACC <- function(command, ...) {
       L152.EPA_MACC_percent_MtCO2e_standardized
 
     # insert "standard MAC taxes" into the MAC table and complete the table
-    L152.EPA_MACC_percent_MtCO2e %>%
+   suppressWarnings(L152.EPA_MACC_percent_MtCO2e %>%
       full_join(L152.EPA_MACC_percent_MtCO2e_standardized,
                 by = c("Sector", "Process", "GCAM_region_ID", "year", "cost_1990USD_tCe")) %>%
       group_by(Sector, Process, GCAM_region_ID, year) %>%
       mutate(reduction_pct = approx_fun(cost_1990USD_tCe, reduction_pct)) %>%
-      suppressWarnings(mutate(reduction_pct = map_dbl(cost_1990USD_tCe,~max(reduction_pct[cost_1990USD_tCe<=.x], na.rm = T)))) %>%
+      mutate(reduction_pct = map_dbl(cost_1990USD_tCe,~max(reduction_pct[cost_1990USD_tCe<=.x], na.rm = T))) %>%
       mutate(reduction_pct = ifelse(reduction_pct < 0,0,reduction_pct)) %>%
       ungroup() %>%
       filter(cost_1990USD_tCe %in% price_cut) %>%
-      arrange(Sector, Process, GCAM_region_ID, year) ->
+      arrange(Sector, Process, GCAM_region_ID, year)) ->
       L152.EPA_MACC_percent_MtCO2e_complete
 
 
