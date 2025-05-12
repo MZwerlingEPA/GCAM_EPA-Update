@@ -29,15 +29,7 @@ module_emissions_L152.MACC <- function(command, ...) {
              FILE = "emissions/EPA_2025/macc_results_raw_ENERGY",
              FILE = "emissions/EPA_2025/macc_results_raw_INDUSTRIAL",
              FILE = "emissions/EPA_2025/macc_results_raw_WWR",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_1",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_2",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_3",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_4",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_5",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_6",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_7",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_8",
-             FILE = "emissions/EPA_2025/macc_results_raw_LAN_9"))
+             FILE = "emissions/EPA_2025/macc_results_raw_LAN"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L152.MAC_pct_R_S_Proc_EPA"))
   } else if(command == driver.MAKE) {
@@ -64,16 +56,7 @@ module_emissions_L152.MACC <- function(command, ...) {
     EPA_MAC_missing_region <- get_data(all_data, "emissions/EPA_MAC_missing_region")
     EPA_country_map <- get_data(all_data, "emissions/EPA_2025/EPA_country_map_2025")
     EPA_ISO_map <- get_data(all_data, "emissions/EPA_2025/ISO_GCAM_region_map")
-
-    EPA_MACC_Lan_1 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_1")
-    EPA_MACC_Lan_2 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_2")
-    EPA_MACC_Lan_3 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_3")
-    EPA_MACC_Lan_4 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_4")
-    EPA_MACC_Lan_5 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_5")
-    EPA_MACC_Lan_6 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_6")
-    EPA_MACC_Lan_7 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_7")
-    EPA_MACC_Lan_8 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_8")
-    EPA_MACC_Lan_9 <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN_9")
+    EPA_MACC_Lan <- get_data(all_data, "emissions/EPA_2025/macc_results_raw_LAN")
 
 
     # baseline data
@@ -93,15 +76,7 @@ module_emissions_L152.MACC <- function(command, ...) {
     # Convert from 2010$/tCO2e to 1990$/tC
 
     EPA_MACC_Ag %>%
-      rbind(EPA_MACC_Lan_1) %>%
-      rbind(EPA_MACC_Lan_2) %>%
-      rbind(EPA_MACC_Lan_3) %>%
-      rbind(EPA_MACC_Lan_4) %>%
-      rbind(EPA_MACC_Lan_5) %>%
-      rbind(EPA_MACC_Lan_6) %>%
-      rbind(EPA_MACC_Lan_7) %>%
-      rbind(EPA_MACC_Lan_8) %>%
-      rbind(EPA_MACC_Lan_9) %>%
+      rbind(EPA_MACC_Lan) %>%
       rbind(EPA_MACC_En) %>%
       rbind(EPA_MACC_Ind %>%
               filter(!country_code %in% c("TUV","NRU"))) %>%
@@ -234,15 +209,7 @@ module_emissions_L152.MACC <- function(command, ...) {
                      "emissions/EPA_2025/macc_results_raw_ENERGY",
                      "emissions/EPA_2025/macc_results_raw_INDUSTRIAL",
                      "emissions/EPA_2025/macc_results_raw_WWR",
-                     "emissions/EPA_2025/macc_results_raw_LAN_1",
-                     "emissions/EPA_2025/macc_results_raw_LAN_2",
-                     "emissions/EPA_2025/macc_results_raw_LAN_3",
-                     "emissions/EPA_2025/macc_results_raw_LAN_4",
-                     "emissions/EPA_2025/macc_results_raw_LAN_5",
-                     "emissions/EPA_2025/macc_results_raw_LAN_6",
-                     "emissions/EPA_2025/macc_results_raw_LAN_7",
-                     "emissions/EPA_2025/macc_results_raw_LAN_8",
-                     "emissions/EPA_2025/macc_results_raw_LAN_9") ->
+                     "emissions/EPA_2025/macc_results_raw_LAN") ->
       L152.MAC_pct_R_S_Proc_EPA
 
     return_data(L152.MAC_pct_R_S_Proc_EPA)
